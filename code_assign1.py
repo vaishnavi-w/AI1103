@@ -27,7 +27,7 @@ calc_prob_AorB=n_AorB/sample_size
 #calculating P(A intersection B):
 calc_prob_AB= calc_prob_A + calc_prob_B - calc_prob_AorB
 prob_AB = prob_A+prob_B-prob_AorB
-print("P(A intersection B) : Simulated value = " , calc_prob_AB, " while theoretical value = ", prob_AB)
+print("P(AB) : Simulated value = " , calc_prob_AB, " while theoretical value = ", prob_AB)
 
 #calculating P(A|B) and P(B|A)
 print("P(A|B) Simulated value  = ", calc_prob_AB/calc_prob_B, " while theoretical value = ", prob_AB/prob_B)
