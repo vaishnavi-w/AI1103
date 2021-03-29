@@ -143,25 +143,16 @@ Find $P\brak{\frac{1}{2}}$
 \section*{Solution}
 CDF of X is defined as,
 \begin{align}
-    F\brak{x}=\pr{X \le x}
+    F_X\brak{x}=\pr{X \le x}
 \end{align}
-When $x<\frac{1}{2}$
+
+$\because x > 0$
 \begin{align}
-    \pr{X\le x}&=\int_{- \infty}^{x} p_X\brak{x} \,dx\\
-    &=\int_{0}^{x} p_X\brak{x} \,dx\\
-    &=P\brak{(0,x]}\\
-    &=\frac{x}{2}
-\end{align}
-Similarly, when  $\frac{1}{2} \le x \le 1$
-\begin{align}
-    \pr{X\le x}&=\int_{- \infty}^{x} p_X\brak{x} \,dx\\
-    &=\int_{0}^{x} p_X\brak{x} \,dx\\
-    &=P\brak{(0,x]}\\
-    &=x
+    F_X\brak{x}=P\brak{(\,0,x]\,}
 \end{align}
 Thus, CDF of $X$ is given by
 \begin{align}
-    F\brak{x} =
+    F_X\brak{x} =
     \begin{cases}
     0 & x < 0\\
     \frac{x}{2} & 0 \le x < \frac{1}{2}\\
