@@ -160,51 +160,59 @@ Let
     p_X\brak{x} &= \Pr\brak{X=x}
 \end{align}
 be the probability densities of random variables $Y_1, Y_2$ and $X$. \\
-$Y_1$ and $Y_2$ lie in the range \brak{\frac{a}{2},\frac{a+c}{2}}, therefore,
+$Y_1$ and $Y_2$ lie in the range \brak{\frac{-c}{4},\frac{c}{4}}, therefore,
 \begin{align}
-    \int_{\frac{a}{2}}^{\frac{a+c}{2}} p_{Y_1}\brak{y} \,dy  &=1 \\
+    \int_{\frac{-c}{4}}^{\frac{c}{4}} p_{Y_1}\brak{y} \,dy  &=1 \\
     \frac{c}{2} \times p_{Y_1}\brak{y}  &= 1 \\
      p_{Y_1}\brak{y} &= \frac{2}{c}
 \end{align}
 The PDF for $Y_1$ and $Y_2$,
 \begin{align}
-p_{Y_1}(y) = p_{Y_2}(y) = 
+p_{Y_1}\brak{y} = p_{Y_2}\brak{y} = 
 \begin{cases}
-\frac{2}{c} &  \frac{a}{2} \le y \le \frac{a+c}{2}\\
+\frac{2}{c} &  \frac{-c}{4} \le y \le \frac{c}{4}\\
 0 & \text{otherwise}
 \end{cases}
 \end{align}
 
 The density of X is obtained by convolution of $Y_1$ and $Y_2$
 \begin{align}
-p_X(x) =  \int_{- \infty}^{\infty} p_{Y_1}(x-y)p_{Y_2}(y) \,dy
+p_X\brak{x} &= p_{Y_1}(x)*p_{Y_2}(x)\\
+&=  \int_{- \infty}^{\infty} p_{Y_1}\brak{x-y}p_{Y_2}\brak{y}\,dy
 \end{align}
-We have,
-\begin{align}
-    X = Y_1 + Y_2 \implies x = 2y\\
-    \label{eq1} \frac{a}{2}\leq y \leq \frac{a+c}{2}\\ 
-    \frac{a}{2}\le x-y \le \frac{a+c}{2}\\
-    \label{eq2} x-\frac{a+c}{2}\le y \le x-\frac{a}{2}
-\end{align}
-From \eqref{eq1} and \eqref{eq2}
+where $*$ denotes the convolution operation. Since convolution operation is time invariant, 
 \begin{multline}
-    \max\brak{\frac{a}{2}, x-\frac{a+c}{2}}\le y \le\\
-    \min\brak{\frac{a+c}{2}, x-\frac{a}{2}}
+    p_X\brak{x-t} = p_{Y_1}(x-t)*p_{Y_2}(x) \\ = p_{Y_1}(x)*p_{Y_2}(x-t)
 \end{multline}
-When $a \le x \le \frac{a+c}{2}$
 \begin{align}
-    p_X(x) & = \int_{\frac{a}{2}}^{x-\frac{a}{2}} p_{Y_1}(x-y)p_{Y_2}(y)\,dy\\
-    & = \int_{\frac{a}{2}}^{x-\frac{a}{2}} \frac{2}{c}\times\frac{2}{c}\,dy\\
+    p_X\brak{x-t} &=  \int_{- \infty}^{\infty} p_{Y_1}\brak{x-y-t}p_{Y_2}\brak{y}\,dy
+\end{align}
+On time shifting $Y_1$ by shifting factor $t=a+\frac{c}{4}$, 
+\begin{align}
+    p_X\brak{x-\brak{a+\frac{c}{4}}} =  \int_{- \infty}^{\infty} p_{Y_1}\brak{x-y-\brak{a+\frac{c}{4}}}p_{Y_2}\brak{y}\,dy
+\end{align}
+Let $p_X\brak{x-\brak{a+\frac{c}{4}}}=p_X'\brak{x}$\\
+We know that, 
+\begin{align}
+    \label{eq1} \frac{-c}{4}\leq y \leq \frac{c}{4}\\ 
+    \frac{-c}{4}\le x-y-\brak{a+\frac{c}{4}} \le \frac{c}{4}\\
+    \label{eq2} x-\brak{a+\frac{3c}{4}}\le y \le x-\brak{a+\frac{c}{4}}
+\end{align}
+When $a \le x \le a+\frac{c}{2}$
+\begin{align}
+    p_X'\brak{x} & = \int_{\frac{-c}{4}}^{x-a-\frac{c}{4}} p_{Y_1}(x-y-\brak{a+\frac{c}{4}})p_{Y_2}(y)\,dy\\
+    & = \int_{\frac{-c}{4}}^{x-a-\frac{c}{4}} \frac{2}{c}\times\frac{2}{c}\,dy\\
     & = \frac{4}{c^2}\brak{x-a}
 \end{align}
-Similarly, when $\frac{a+c}{2} \le x \le a+c $
+Similarly, when $a+\frac{c}{2} \le x \le a+c $
 \begin{align}
-    p_X(x) & = \int_{x-\frac{a+c}{2}}^{\frac{a+c}{2}} p_{Y_1}(x-y)p_{Y_2}(y)\,dy\\
+    p_X'(x) & = \int_{x-a-\frac{3c}{4}}^{\frac{c}{4}} p_{Y_1}(x-y-\brak{a+\frac{c}{4}})p_{Y_2}(y)\,dy\\
     & = \frac{4}{c^2}\brak{a+c-x}
 \end{align}
-The PDF of X is,
+
+The PDF of time shifted X is,
 \begin{align}
-p_x = 
+p_x' = 
 \begin{cases}
 \frac{4}{c^2}\brak{x-a} & a \le x \le a+\frac{c}{2}\\
 \frac{4}{c^2}\brak{a+c-x} & a+\frac{c}{2} \le x \le a+c \\
@@ -213,22 +221,12 @@ p_x =
 \end{align}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=\columnwidth]{conv.png}
-\caption{PDF of X}
+\includegraphics[width=\columnwidth]{conv5.png}
+\caption{PDF of time shifted X}
 \label{fig:convolution}
 \end{figure}
-Thus, the PDF of X is,\\
-The PDF of X from Figure.\ref{fig:BSC} in the question,
-\begin{align}
-p_x = 
-\begin{cases}
-\frac{a}{b}\brak{x-a} & a \le x \le a+b\\
-\frac{a}{b-c}\brak{a+c-x} & a+b \le x \le a+c \\
-0 & \text{otherwise}
-\end{cases}
-\end{align}
 
-On comparing the parameters, we have
+On comparing the parameters of PDF of time shifted X with that in the question, we have
 \begin{align}
     b=\frac{c}{2}\\
     a=\frac{2}{c}
@@ -252,19 +250,7 @@ CDF of X is defined as,
 \begin{align}
     F_X\brak{x}=\pr{X \le x}
 \end{align}
-For $x \le 2$,
-\begin{align}
-    \pr{X \le x}& = \int_{- \infty}^{x} p_X\brak{x} \,dx\\
-    & = \int_{1}^{x} x-1 \,dx\\
-    & = \frac{x^2-2x+1}{2}
-\end{align}
 
-For $x \le 3$,
-\begin{align}
-    \pr{X \le x}& = \int_{- \infty}^{x} p_X\brak{x} \,dx\\
-    & = \frac{1}{2} + \int_{2}^{x} 3-x \,dx\\
-    & = \frac{6x-x^2-7}{2}
-\end{align}
 The CDF of X,
 \begin{align}
 F_X\brak{x} = 
@@ -288,4 +274,6 @@ The plots for CDF and PDF of $X$ are given in Figure \ref{fig:cdf3} and Figure \
 \caption{CDF of X}
 \label{fig:cdf3}
 \end{figure}
+
+
 \end{document}
