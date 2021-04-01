@@ -1,60 +1,33 @@
-import numpy as np
 import matplotlib.pyplot as plt
-from scipy.stats import bernoulli
+import numpy as np
+import scipy.stats as stats
+from scipy import signal
 
-# For plotting the CDF of Z
-# Setting the corresponding x and y - coordinates
-# Region 1 of CDF
-x_1 = np.arange(-1, 1, 0.01)
-y_1 = x_1*0
-# Region 2 of PDF
-x_2 =   np.arange(1, 2, 0.01)
-y_2=  (x_2**2-2*x_2+1)/2
-# Region 3 of PDF
-x_3 =   np.arange(2, 3, 0.01)
-y_3=  (6*x_3-x_3**2-7)/2
-# Region 4 of PDF
-x_4 =   np.arange(3, 5, 0.01)
-y_4=  x_4**0
+#verifying the result obtained with numerical value
+c=2 
 
-# Plotting the points
-plt.plot(x_1, y_1,'b')
-plt.plot(x_2, y_2,'b')
-plt.plot(x_3, y_3,'b')
-plt.plot(x_4, y_4,'b')
+#generating two uniform distributions 
+y_1 = stats.uniform(loc=-c/4, scale=c/2)
+y_2 = stats.uniform(loc=(2/c)+(c/4), scale=c/2)
 
-plt.xlabel('Random Variable , X')
-plt.ylabel('$F_{X}(x)$')
+dx = 0.0001
+x = np.arange(-4,4,dx)
 
-# function to show the plot
-plt.grid()
-plt.show()
+pmf1 = y_1.pdf(x)*dx
+pmf2 = y_2.pdf(x)*dx
+conv_pmf = signal.fftconvolve(pmf1,pmf2,'same')
 
-# For plotting the PDF of Z
-# Setting the corresponding x and y - coordinates
-# Region 1 of PDF
-x_1 = np.arange(-1, 1, 0.01)
-y_1 = x_1*0
-# Region 2 of PDF
-x_2 =   np.arange(1, 2, 0.01)
-y_2=  x_2 - 1
-# Region 3 of PDF
-x_3 =   np.arange(2, 3, 0.01)
-y_3=  3-x_3
-# Region 4 of PDF
-x_4 =   np.arange(3, 5, 0.01)
-y_4=  x_4*0
+pdf1 = pmf1/dx
+pdf2 = pmf2/dx
+conv_pdf = conv_pmf/dx
 
+print("Area under pdf of Y_1: " +str(np.trapz(pdf1,x)))
+print("Area under pdf of Y_2: " +str(np.trapz(pdf2,x)))
+print("Area under convoluted pdf: " +str(np.trapz(conv_pdf,x)))
 
-# Plotting the points
-plt.plot(x_1, y_1,'b')
-plt.plot(x_2, y_2,'b')
-plt.plot(x_3, y_3,'b')
-plt.plot(x_4, y_4,'b')
-
-plt.xlabel('Random Variable , X')
-plt.ylabel('$P_{X}(x)$')
-
-# function to show the plot
-plt.grid()
+#plotting pdfs of uniform distributions and convoluted function
+plt.plot(x,pdf1, label='$Y_2$')
+plt.plot(x,pdf2, label='$Y_1$')
+plt.plot(x,conv_pdf, label='X')
+plt.legend(loc='best')
 plt.show()
