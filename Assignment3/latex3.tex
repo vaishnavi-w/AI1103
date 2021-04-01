@@ -10,6 +10,7 @@
 \usepackage{mathrsfs}
 \usepackage{txfonts}
 \usepackage{stfloats}
+\usepackage{float}
 \usepackage{bm}
 \usepackage{cite}
 \usepackage{cases}
@@ -148,7 +149,7 @@ Probability density function $p(x)$ of random variable x is as shown below. The 
 \end{figure}
 \section*{Solution}
 
-Let $Y_1$ and $Y_2$ be two independent and identically distributed (IID) random variables.\\
+Let $Y_1$ and $Y_2$ be two independent and identically distributed (IID) uniform random variables.\\
 Let X be a random variable such that
 \begin{align}
     X = Y_1 + Y_2
@@ -160,13 +161,7 @@ Let
     p_X\brak{x} &= \Pr\brak{X=x}
 \end{align}
 be the probability densities of random variables $Y_1, Y_2$ and $X$. \\
-$Y_1$ and $Y_2$ lie in the range \brak{\frac{-c}{4},\frac{c}{4}}, therefore,
-\begin{align}
-    \int_{\frac{-c}{4}}^{\frac{c}{4}} p_{Y_1}\brak{y} \,dy  &=1 \\
-    \frac{c}{2} \times p_{Y_1}\brak{y}  &= 1 \\
-     p_{Y_1}\brak{y} &= \frac{2}{c}
-\end{align}
-The PDF for $Y_1$ and $Y_2$,
+$Y_1$ and $Y_2$ lie in the range \brak{\frac{-c}{4},\frac{c}{4}}, therefore, the PDF for $Y_1$ and $Y_2$,
 \begin{align}
 p_{Y_1}\brak{y} = p_{Y_2}\brak{y} = 
 \begin{cases}
@@ -204,13 +199,15 @@ On comparing the parameters of PDF of time shifted X with that in the question, 
     a=\frac{2}{c}
 \end{align}
 \rightline{Answer : Option A}
-\begin{figure}[h!]
+
+
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{con6.png}
 \caption{PDF of time shifted X}
 \label{fig:convolution}
 \end{figure}
-
+The following are some observations: 
 \begin{enumerate}
     \item The sum of two equally distributed random variables will lead to a triangular probability density
     \item The two uniformly distributed random variables lie in the range $\brak{\frac{-c}{4},\frac{c}{4}}$ and $\brak{\frac{2}{c}+\frac{c}{4} , \frac{2}{c}+\frac{3c}{4}}$. \\
@@ -225,7 +222,7 @@ Fig \ref{fig:sim1} and Fig \ref{fig:sim2} are the simulated plots of PDF and CDF
 \caption{PDF of $Y_1, Y_2$ and X}
 \label{fig:sim1}
 \end{figure}
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{sim2.png}
 \caption{CDF of X}
