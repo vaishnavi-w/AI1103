@@ -32,6 +32,7 @@ plt.plot(x,pdf2, label='$Y_1$')
 plt.plot(x,conv_pdf, label='X')
 plt.legend(loc='best')
 plt.suptitle('PDFs')
+plt.grid()
 plt.show()
 
 # Normalize the data to a proper PDF
@@ -43,4 +44,5 @@ plt.plot(x,cdf)
 plt.xlabel('Random Variable , X')
 plt.ylabel('$F_{X}(x)$')
 plt.suptitle('CDF of X')
+plt.grid()
 plt.show()
