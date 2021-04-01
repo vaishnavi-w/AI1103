@@ -177,102 +177,59 @@ p_{Y_1}\brak{y} = p_{Y_2}\brak{y} =
 
 The density of X is obtained by convolution of $Y_1$ and $Y_2$
 \begin{align}
-p_X\brak{x} &= p_{Y_1}(x)*p_{Y_2}(x)\\
-&=  \int_{- \infty}^{\infty} p_{Y_1}\brak{x-y}p_{Y_2}\brak{y}\,dy
+p_X\brak{x} = p_{Y_1}(x)*p_{Y_2}(x)
 \end{align}
 where $*$ denotes the convolution operation. Since convolution operation is time invariant, 
 \begin{multline}
     p_X\brak{x-t} = p_{Y_1}(x-t)*p_{Y_2}(x) \\ = p_{Y_1}(x)*p_{Y_2}(x-t)
 \end{multline}
+On time shifting $Y_1$ by shifting factor $t=a+\frac{c}{2}$, 
 \begin{align}
-    p_X\brak{x-t} &=  \int_{- \infty}^{\infty} p_{Y_1}\brak{x-y-t}p_{Y_2}\brak{y}\,dy
+    p_X\brak{x-\brak{a+\frac{c}{2}}} =  p_{Y_1}\brak{x-\brak{a+\frac{c}{2}}}*p_{Y_2}\brak{x}
 \end{align}
-On time shifting $Y_1$ by shifting factor $t=a+\frac{c}{4}$, 
+Thus, the PDF of time shifted X obtained by convolution is,
 \begin{align}
-    p_X\brak{x-\brak{a+\frac{c}{4}}} =  \int_{- \infty}^{\infty} p_{Y_1}\brak{x-y-\brak{a+\frac{c}{4}}}p_{Y_2}\brak{y}\,dy
-\end{align}
-Let $p_X\brak{x-\brak{a+\frac{c}{4}}}=p_X'\brak{x}$\\
-We know that, 
-\begin{align}
-    \label{eq1} \frac{-c}{4}\leq y \leq \frac{c}{4}\\ 
-    \frac{-c}{4}\le x-y-\brak{a+\frac{c}{4}} \le \frac{c}{4}\\
-    \label{eq2} x-\brak{a+\frac{3c}{4}}\le y \le x-\brak{a+\frac{c}{4}}
-\end{align}
-When $a \le x \le a+\frac{c}{2}$
-\begin{align}
-    p_X'\brak{x} & = \int_{\frac{-c}{4}}^{x-a-\frac{c}{4}} p_{Y_1}(x-y-\brak{a+\frac{c}{4}})p_{Y_2}(y)\,dy\\
-    & = \int_{\frac{-c}{4}}^{x-a-\frac{c}{4}} \frac{2}{c}\times\frac{2}{c}\,dy\\
-    & = \frac{4}{c^2}\brak{x-a}
-\end{align}
-Similarly, when $a+\frac{c}{2} \le x \le a+c $
-\begin{align}
-    p_X'(x) & = \int_{x-a-\frac{3c}{4}}^{\frac{c}{4}} p_{Y_1}(x-y-\brak{a+\frac{c}{4}})p_{Y_2}(y)\,dy\\
-    & = \frac{4}{c^2}\brak{a+c-x}
-\end{align}
-
-The PDF of time shifted X is,
-\begin{align}
-p_x' = 
+p_x = 
 \begin{cases}
 \frac{4}{c^2}\brak{x-a} & a \le x \le a+\frac{c}{2}\\
 \frac{4}{c^2}\brak{a+c-x} & a+\frac{c}{2} \le x \le a+c \\
 0 & \text{otherwise}
 \end{cases}
 \end{align}
-\begin{figure}[h!]
-\centering
-\includegraphics[width=\columnwidth]{conv5.png}
-\caption{PDF of time shifted X}
-\label{fig:convolution}
-\end{figure}
 
 On comparing the parameters of PDF of time shifted X with that in the question, we have
+
 \begin{align}
     b=\frac{c}{2}\\
     a=\frac{2}{c}
 \end{align}
 \rightline{Answer : Option A}
-\section*{Verification}
-Verifying the result obtained with numerical values:\\
-Let $a=1$.\\
-\because a=\frac{2}{c} \implies c=2\\
-
-The PDF of X is,
-\begin{align}
-p_x = 
-\begin{cases}
-\brak{x-1} & 1 \le x \le 2\\
-\brak{3-x} & 2 \le x \le 3 \\
-0 & \text{otherwise}
-\end{cases}
-\end{align}
-CDF of X is defined as,
-\begin{align}
-    F_X\brak{x}=\pr{X \le x}
-\end{align}
-
-The CDF of X,
-\begin{align}
-F_X\brak{x} = 
-\begin{cases}
-0 & x < 1\\
-\frac{x^2-2x+1}{2} &  x \le 2\\
-\frac{6x-x^2-7}{2} & x \le 3 \\
-1 & x > 3
-\end{cases}
-\end{align}
-The plots for CDF and PDF of $X$ are given in Figure \ref{fig:cdf3} and Figure \ref{fig:pdf3}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=\columnwidth]{pdf3.png}
-\caption{PDF of X}
-\label{fig:pdf3}
+\includegraphics[width=\columnwidth]{con6.png}
+\caption{PDF of time shifted X}
+\label{fig:convolution}
+\end{figure}
+
+\begin{enumerate}
+    \item The sum of two equally distributed random variables will lead to a triangular probability density
+    \item The two uniformly distributed random variables lie in the range $\brak{\frac{-c}{4},\frac{c}{4}}$ and $\brak{\frac{2}{c}+\frac{c}{4} , \frac{2}{c}+\frac{3c}{4}}$. \\
+    \because $X = Y_1 + Y_2$ the range of X is thus $\brak{\frac{2}{c},\frac{2}{c}+c}$
+    \item On time shifting $Y_1$ to the right by a factor $a+\frac{c}{2}$, the convoluted PDF of X also shifts by the same factor without any change in it's width.
+\end{enumerate}
+
+Fig \ref{fig:sim1} and Fig \ref{fig:sim2} are the simulated plots of PDF and CDF obtained by taking c=2
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\columnwidth]{sim1.png}
+\caption{PDF of $Y_1, Y_2$ and X}
+\label{fig:sim1}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=\columnwidth]{cdf3.png}
+\includegraphics[width=\columnwidth]{sim2.png}
 \caption{CDF of X}
-\label{fig:cdf3}
+\label{fig:sim2}
 \end{figure}
 
 
