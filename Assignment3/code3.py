@@ -21,6 +21,7 @@ pdf1 = pmf1/dx
 pdf2 = pmf2/dx
 conv_pdf = conv_pmf/dx
 
+
 print("Area under pdf of Y_1: " +str(np.trapz(pdf1,x)))
 print("Area under pdf of Y_2: " +str(np.trapz(pdf2,x)))
 print("Area under convoluted pdf: " +str(np.trapz(conv_pdf,x)))
@@ -30,4 +31,16 @@ plt.plot(x,pdf1, label='$Y_2$')
 plt.plot(x,pdf2, label='$Y_1$')
 plt.plot(x,conv_pdf, label='X')
 plt.legend(loc='best')
+plt.suptitle('PDFs')
+plt.show()
+
+# Normalize the data to a proper PDF
+Z=conv_pdf/ (dx * conv_pdf).sum()
+
+# Compute the CDF
+cdf = np.cumsum(Z * dx)
+plt.plot(x,cdf)
+plt.xlabel('Random Variable , X')
+plt.ylabel('$F_{X}(x)$')
+plt.suptitle('CDF of X')
 plt.show()
