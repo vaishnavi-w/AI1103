@@ -10,7 +10,7 @@
 \usepackage{mathrsfs}
 \usepackage{txfonts}
 \usepackage{stfloats}
-
+\usepackage{float}
 \usepackage{bm}
 \usepackage{cite}
 \usepackage{cases}
@@ -135,32 +135,45 @@ Let $X_1$ and $X_2$ be i.i.d. with probability mass function $f_{\theta}\brak{x}
     \item $X_1^2 + X_2 $ is a sufficient statistic
 \end{enumerate}
 \section*{Solution}
+Given that, $X_1$ and $X_2$ are i.i.d. with probability mass function
+\begin{align}
+    f\brak{x} = 
+    \begin{cases}
+    \brak{1-\theta} & x=0\\
+    \theta & x=1
+    \end{cases}
+\end{align}
 A statistic $t=T\brak{X}$ is sufficient for a parameter $\theta$ if the conditional probability distribution of the data, given the statistic $t=T\brak{X}$ does not depend on the parameter $\theta$. i.e,
 \begin{align}
     P_\theta\brak{X_1=x_1,X_2=x_2|T=t}
 \end{align}
 is independent of $\theta$ for all $x_1,x_2$ and $t$
 \begin{enumerate}
-    \item Let $T=X_1+2X_2$
+    \item Let $T=X_1+2X_2$\\
+    Consider a case where $x_1=0, x_2=0$ and $t=0$
     \begin{align}
     \pr{T=0}&=\pr{X_1+2X_2=0}\\
-    &=\pr{X_1=0,X_2=0}
+    \label{eq1}&=\pr{X_1=0,X_2=0}
     \end{align}
     As $X_1$ and $X_2$ are independent
     \begin{multline}
         \pr{T=0}=\pr{X_1=0}\pr{X_2=0}\\
-    =\theta^0 \brak{1-\theta}^{1-0}\times\theta^0 \brak{1-\theta}^{1-0}=\brak{1-\theta}^2
+        =\brak{1-\theta}^2
     \end{multline}
-    Consider,
+   The conditional probability,
     \begin{multline}
-        \pr{X_1=0,X_2=0 | T=0}\\=\frac{\pr{X_1=0,X_2=0}}{\pr{T=0}}
-        =\frac{\brak{1-\theta}^2}{\brak{1-\theta}^2}=1
+        \pr{X_1=0,X_2=0 | T=0}\\
+        =\frac{\pr{\brak{X_1=0,X_2=0}\cap\brak{T=0}}}{\pr{T=0}}
+    \end{multline}
+    From \eqref{eq1}, $\brak{X_1=0,X_2=0} \subseteq \brak{T=0}$
+    \begin{multline}
+        =\frac{\pr{X_1=0,X_2=0}}{\pr{T=0}}=\frac{\brak{1-\theta}^2}{\brak{1-\theta}^2}=1
     \end{multline}
     Similarly, conditional probabilities for other values of $x_1,x_2$ and $t$ are given in table \ref{table1}
     \begin{table}[h!]
     \begin{tabular}[width=\columnwidth]{|c|c|c|c|}
          \hline
-        \multirow{2}{*}{\textbf{x_1}} & \multirow{2}{*}{\textbf{x_2}} & \textbf{t} & \textbf{Conditional probability}  \\
+        \multirow{2}{*}{$x_1$} & \multirow{2}{*}{$x_2$} & t & Conditional probability\\
         & & $t=X_1+2X_2$ & $P_\theta\brak{X_1=x_1,X_2=x_2|T=t}$\\
         \hline
         \multirow{2}{*}{0} & \multirow{2}{*}{0} & 0 & 1\\ 
@@ -183,39 +196,48 @@ is independent of $\theta$ for all $x_1,x_2$ and $t$
     From table \ref{table1}, all the conditional probabilities are independent of $\theta$\\ $\therefore X_1+2X_2$ is a sufficient statistic.
     
     
-    \item Let $T=X_1-X_2$
+    \item Let $T=X_1-X_2$\\
+    Consider a case where $x_1=0, x_2=0$ and $t=0$
     \begin{multline}
-        \pr{T=0}=\pr{X_1-X_2=0}\\=\pr{X_1=0,X_2=0}+\pr{X_1=1,X_2=1}
+        \label{eq2}\pr{T=0}=\pr{X_1-X_2=0}\\=\pr{X_1=0,X_2=0}+\pr{X_1=1,X_2=1}
     \end{multline}
     As $X_1$ and $X_2$ are independent
     \begin{multline}
         =\pr{X_1=0}\pr{X_2=0}\\+\pr{X_1=1}\pr{X_2=1}=\brak{1-\theta}^2 + \theta^2
     \end{multline}
-    Consider,
+    The conditional probability,
     \begin{multline}
-        \pr{X_1=0,X_2=0 | T=0} = \\\frac{\pr{X_1=0,X_2=0}}{\pr{T=0}}
-        =\frac{\brak{1-\theta}^2}{\brak{1-\theta}^2 + \theta^2}
+        \pr{X_1=0,X_2=0 | T=0}\\
+        =\frac{\pr{\brak{X_1=0,X_2=0}\cap\brak{T=0}}}{\pr{T=0}}
     \end{multline}
+    From \eqref{eq2}, $\brak{X_1=0,X_2=0} \subseteq \brak{T=0}$
+    \begin{multline}
+        =\frac{\pr{X_1=0,X_2=0}}{\pr{T=0}}=\frac{\brak{1-\theta}^2}{\brak{1-\theta}^2 + \theta^2}
+    \end{multline}
+  
     depends on $\theta$. \\
     $\therefore X_1-X_2$ is not a sufficient statistic.
     
-    \item Let $T=X_1^2+X_2^2$
+    \item Let $T=X_1^2+X_2^2$\\
+    Consider a case where $x_1=1, x_2=0$ and $t=1$
     \begin{multline}
-        \pr{T=1}=\pr{X_1^2+X_2^2=1}\\=\pr{X_1=1,X_2=0}+\pr{X_1=0,X_2=1}
+        \label{eq3}\pr{T=1}=\pr{X_1^2+X_2^2=1}\\=\pr{X_1=1,X_2=0}+\pr{X_1=0,X_2=1}\\=\theta \brak{1-\theta} + \brak{1-\theta}\theta  = 2\theta \brak{1-\theta}
     \end{multline}
-     \begin{align}
-        =\theta \brak{1-\theta} + \brak{1-\theta}\theta  = 2\theta \brak{1-\theta}
-    \end{align}
-    Consider,
+
+    The conditional probability,
     \begin{multline}
-        \pr{X_1=1,X_2=0 | T=1} = \\\frac{\pr{X_1=1,X_2=0}}{\pr{T=1}}
-        =\frac{\brak{1-\theta}}{2\brak{1-\theta}^2}=\frac{1}{2}
+        \pr{X_1=1,X_2=0 | T=1}\\
+        =\frac{\pr{\brak{X_1=1,X_2=0}\cap\brak{T=0}}}{\pr{T=1}}
+    \end{multline}
+    From \eqref{eq3}, $\brak{X_1=1,X_2=0} \subseteq \brak{T=1}$
+    \begin{multline}
+        =\frac{\pr{X_1=1,X_2=0}}{\pr{T=1}}=\frac{\theta\brak{1-\theta}}{2\theta\brak{1-\theta}}=\frac{1}{2}
     \end{multline}
     Similarly, conditional probabilities for other values of $x_1,x_2$ and $t$ are given in table \ref{table2}
     \begin{table}[h!]
     \begin{tabular}[width=\columnwidth]{|c|c|c|c|}
          \hline
-        \multirow{2}{*}{\textbf{x_1}} & \multirow{2}{*}{\textbf{x_2}} & \textbf{t} & \textbf{Conditional probability}  \\
+        \multirow{2}{*}{$x_1$} & \multirow{2}{*}{$x_2$} & t & Conditional probability\\
         & & $t=X_1^2+X_2^2$ & $P_\theta\brak{X_1=x_1,X_2=x_2|T=t}$\\
         \hline
         \multirow{2}{*}{0} & \multirow{2}{*}{0} & 0 & 1\\ 
@@ -238,24 +260,27 @@ is independent of $\theta$ for all $x_1,x_2$ and $t$
     From table \ref{table2}, all the conditional probabilities are independent of $\theta$\\ $\therefore X_1^2+X_2^2$ is a sufficient statistic.
     
     \item Let $T=X_1^2+X_2$\\
+    Consider a case where $x_1=1, x_2=0$ and $t=1$
     \begin{multline}
-        \pr{T=1}=\pr{X_1^2+X_2=1}\\=\pr{X_1=1,X_2=0}+\pr{X_1=0,X_2=1}
+        \label{eq4}\pr{T=1}=\pr{X_1^2+X_2=1}\\=\pr{X_1=1,X_2=0}+\pr{X_1=0,X_2=1}\\=\theta \brak{1-\theta} + \brak{1-\theta}\theta  = 2\theta \brak{1-\theta}
     \end{multline}
-     \begin{align}
-        =\theta \brak{1-\theta} + \brak{1-\theta}\theta  = 2\theta \brak{1-\theta}
-    \end{align}
-    Consider,
+
+    The conditional probability,
     \begin{multline}
-        \pr{X_1=1,X_2=0 | T=1} = \\\frac{\pr{X_1=1,X_2=0}}{\pr{T=1}}
-        =\frac{\brak{1-\theta}}{2\brak{1-\theta}^2}=\frac{1}{2}
+        \pr{X_1=1,X_2=0 | T=1}\\
+        =\frac{\pr{\brak{X_1=1,X_2=0}\cap\brak{T=0}}}{\pr{T=1}}
+    \end{multline}
+    From \eqref{eq4}, $\brak{X_1=1,X_2=0} \subseteq \brak{T=1}$
+    \begin{multline}
+       =\frac{\pr{X_1=1,X_2=0}}{\pr{T=1}}=\frac{\theta\brak{1-\theta}}{2\theta\brak{1-\theta}}=\frac{1}{2}
     \end{multline}
     Similarly, conditional probabilities for other values of $x_1,x_2$ and $t$ are given in table \ref{table3}
     
     \begin{center}
-    \begin{table}[H]
+    \begin{table}[h!]
     \begin{tabular}[width=\columnwidth]{|c|c|c|c|}
          \hline
-        \multirow{2}{*}{\textbf{x_1}} & \multirow{2}{*}{\textbf{x_2}} & \textbf{t} & \textbf{Conditional probability}  \\
+        \multirow{2}{*}{$x_1$} & \multirow{2}{*}{$x_2$} & t & Conditional probability\\
         & & $t=X_1^2+X_2$ & $P_\theta\brak{X_1=x_1,X_2=x_2|T=t}$\\
         \hline
         \multirow{2}{*}{0} & \multirow{2}{*}{0} & 0 & 1\\ 
@@ -275,7 +300,8 @@ is independent of $\theta$ for all $x_1,x_2$ and $t$
     \label{table3}
     \end{table}  
     \end{center}
-    From table \ref{table3}, all the conditional probabilities are independent of $\theta$ $\therefore X_1^2+X_2$ is a sufficient statistic.
+    From table \ref{table3}, all the conditional probabilities are independent of $\theta$\\
+    $\therefore X_1^2+X_2$ is a sufficient statistic.
     
 \end{enumerate}
 \rightline{Answer : Options 1,3,4}
