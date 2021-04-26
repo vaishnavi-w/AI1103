@@ -1,0 +1,202 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{gensymb}
+\singlespacing
+\usepackage[cmex10]{amsmath}
+
+\usepackage{amsthm}
+
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{float}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+
+\usepackage{longtable}
+\usepackage{multirow}
+
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{graphicx}
+\usepackage{tkz-euclide}
+
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
+
+\DeclareMathOperator*{\Res}{Res}
+
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\begin{document}
+
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+\raggedbottom
+\setlength{\parindent}{0pt}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\newcommand\comb[2]{{}^{#1}\mathrm{C}_{#2}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\vert#1\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\lVert#1\rVert}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E[ #1 ]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\numberwithin{equation}{subsection}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+\renewcommand{\thefigure}{\theproblem}
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\vspace{3cm}
+\title{AI1103-Assignment 6}
+\author{W Vaishnavi\\AI20BTECH11025}
+\maketitle
+\newpage
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+Download all latex-tikz codes from 
+%
+\begin{lstlisting}
+https://github.com/vaishnavi-w/AI1103/blob/main/Assignment6/latex6.tex
+\end{lstlisting}
+\section*{Question}
+Which of the following conditions imply independence of random variables $X$ and $Y$?
+\begin{enumerate}
+    \item $\pr{X>a|Y>a}=\pr{X>a} $ for all $a\in R$
+    \item $\pr{X>a|Y<b}=\pr{X>a} $ for all $a,b\in R$
+    \item $X$ and $Y$ are uncorrelated
+    \item $E\sbrak{\brak{X-a}\brak{Y-b}}=E\sbrak{X-a}E\sbrak{Y-b}$ for all $a,b\in R$
+\end{enumerate} 
+\section*{Solution}
+\begin{enumerate}
+    \item Two random variables $X$ and $Y$ are independent when
+    \begin{align}
+        \pr{X\in A,Y \in B}=\pr{X \in A}\pr{Y \in B}
+    \end{align}
+    In other words conditional probability follows
+    \begin{align}
+        \pr{X\in A|Y \in B}=\pr{X \in A}
+    \end{align}
+    for all sets $A$ and $B$. \\
+    In the case of $\pr{X>a|Y>a}=\pr{X>a}$ the sets $A=B$. The spectrum of conditions for independence is underrepresented. Hence, the condition does not imply independence of $X$ and $Y$.\\
+    \textbf{Option 1 is incorrect}
+    \item From Bayes theorem,
+\begin{align}
+    \pr{X>a|Y<b}=\frac{\pr{\brak{X>a},\brak{Y<b}}}{\pr{Y<b}}
+\end{align}
+Given that $\pr{X>a|Y<b}=\pr{X>a}$,
+\begin{align}
+    \frac{\pr{\brak{X>a},\brak{Y<b}}}{\pr{Y<b}}=\pr{X>a}\\
+    \pr{\brak{X>a},\brak{Y<b}}=\pr{X>a}\pr{Y<b}
+\end{align}
+for all $a,b\in R$.\\
+As the joint probability of random variables is product of their individual probabilities, $X$ and $Y$ are independent. \\
+\textbf{Option 2 is correct}
+    \item Two random variables $X$ and $Y$ are uncorrelated if their covariance is zero.
+\begin{align}
+    cov\sbrak{X,Y}=E\sbrak{XY}-E\sbrak{X}E\sbrak{Y}=0
+\end{align}
+    Uncorrelatedness does not imply independence.\\
+    Counterexample: Let $X\sim U \sbrak{-1,1}$ be a uniformly distributed random variable.
+    \begin{align}
+        f_X\brak{x}=
+        \begin{cases}
+        \frac{1}{2} & -1\leq x \leq 1\\
+        0 & otherwise
+        \end{cases}\\
+        E\sbrak{X}=\int_{-1}^{1}x f\brak{x} dx=0
+    \end{align}
+    Let $Y=X^2$ be another random variable.\\
+    $X$ and $Y$ are dependent.
+    \begin{align}
+        cov\sbrak{X,Y}&=E\sbrak{XY}-E\sbrak{X}E\sbrak{Y}\\
+        &=E\sbrak{X^3}-0\times E\sbrak{Y}\\
+        &=\int_{-1}^{1}x^3 f\brak{x} dx=0
+    \end{align}
+    $X$ and $Y$ are uncorrelated but not independent.\\
+    \textbf{Option 3 is incorrect}
+    \item Given that,
+    \begin{align}
+        E\sbrak{\brak{X-a}\brak{Y-b}}=E\sbrak{X-a}E\sbrak{Y-b}
+    \end{align}
+    \begin{multline}
+        cov\sbrak{\brak{X-a},\brak{Y-b}}=
+        E\sbrak{\brak{X-a}\brak{Y-b}}\\-E\sbrak{X-a}E\sbrak{Y-b}
+    \end{multline}
+    \begin{align}
+        \implies cov\sbrak{\brak{X-a}\brak{Y-b}}=0
+    \end{align}
+    From option 3, it follows that $X$ and $Y$ are not necessarily independent.\\
+    \textbf{Option 4 is incorrect.}
+\end{enumerate}
+
+
+\end{document}
