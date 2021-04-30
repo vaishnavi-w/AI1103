@@ -137,9 +137,9 @@ Which of the following conditions imply independence of random variables $X$ and
 \end{enumerate} 
 \section*{Solution}
 \begin{enumerate}
-    \item Two random variables $X$ and $Y$ are independent when
+    \item Two random variables $X$ and $Y$ are independent when the joint probability of random variables is product of their individual probabilities
     \begin{align}
-        \pr{X\in A,Y \in B}=\pr{X \in A}\pr{Y \in B}
+        \label{eq1} \pr{X\in A,Y \in B}=\pr{X \in A}\pr{Y \in B}
     \end{align}
     In other words conditional probability follows
     \begin{align}
@@ -147,7 +147,47 @@ Which of the following conditions imply independence of random variables $X$ and
     \end{align}
     for all sets $A$ and $B$. \\
     In the case of $\pr{X>a|Y>a}=\pr{X>a}$ the sets $A=B$. The spectrum of conditions for independence is underrepresented. Hence, the condition does not imply independence of $X$ and $Y$.\\
+    \textbf{Counterexample:} Consider two random variables $X$,$Y \in \{0,1,2\}$ with the probabilities of the ordered pairs \brak{X,Y} given in the Table\ref{table1}
+    \begin{center}
+    \begin{table}[h]
+    \centering
+    \resizebox{\columnwidth}{!}{
+    \begin{tabular}{|c|c||c|c||c|c|}
+    \hline
+    \brak{X,Y}&Pr&\brak{X,Y}&Pr&\brak{X,Y}&Pr\\ 
+    \hline
+    (0,0)&0.2& (1,0)&0.2& (2,0)&0.1 \\ 
+    (0,1)&0.1& (1,1)&0.1& (2,1)&0.1 \\
+    (0,2)&0.1& (1,2)&0.05& (2,2)&0.05 \\
+    \hline
+    \end{tabular}
+    }
+    \caption{\pr{X,Y}}
+    \label{table1}
+    \end{table}
+    \end{center}
+    
+    Consider
+    \begin{align}
+        \pr{X>1,Y>1}=\pr{X=2,Y=2}=0.05
+    \end{align}
+    \begin{multline}
+        \pr{X>1}\pr{Y>1}=\pr{X=2}\pr{Y=2}\\
+        =0.25\times0.2=0.05
+    \end{multline}
+    Similarly, we can find that 
+    $\pr{X>a,Y>a}=\pr{X>a}\pr{Y>a}$ for all $a\in \{0,1,2\}$\\
+    Consider,
+    \begin{align}
+        \pr{X=1,Y=2}=0.05
+    \end{align}
+    \begin{multline}
+        \pr{X=1}\pr{Y=2}=0.35\times0.2=0.7\\\neq\pr{X=1,Y=2}
+    \end{multline} 
+    Clearly, $X$ and $Y$ are not independent. 
+    
     \textbf{Option 1 is incorrect}
+    
     \item From Bayes theorem,
 \begin{align}
     \pr{X>a|Y<b}=\frac{\pr{\brak{X>a},\brak{Y<b}}}{\pr{Y<b}}
@@ -158,14 +198,14 @@ Given that $\pr{X>a|Y<b}=\pr{X>a}$,
     \pr{\brak{X>a},\brak{Y<b}}=\pr{X>a}\pr{Y<b}
 \end{align}
 for all $a,b\in R$.\\
-As the joint probability of random variables is product of their individual probabilities, $X$ and $Y$ are independent. \\
+From \eqref{eq1}, $X$ and $Y$ are independent. \\
 \textbf{Option 2 is correct}
     \item Two random variables $X$ and $Y$ are uncorrelated if their covariance is zero.
 \begin{align}
     cov\sbrak{X,Y}=E\sbrak{XY}-E\sbrak{X}E\sbrak{Y}=0
 \end{align}
     Uncorrelatedness does not imply independence.\\
-    Counterexample: Let $X\sim U \sbrak{-1,1}$ be a uniformly distributed random variable.
+    \textbf{Counterexample:} Let $X\sim U \sbrak{-1,1}$ be a uniformly distributed random variable.
     \begin{align}
         f_X\brak{x}=
         \begin{cases}
@@ -197,6 +237,4 @@ As the joint probability of random variables is product of their individual prob
     From option 3, it follows that $X$ and $Y$ are not necessarily independent.\\
     \textbf{Option 4 is incorrect.}
 \end{enumerate}
-
-
 \end{document}
