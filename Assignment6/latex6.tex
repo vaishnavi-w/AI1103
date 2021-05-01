@@ -142,14 +142,14 @@ Which of the following conditions imply independence of random variables $X$ and
         \label{eq1} \pr{X\in A,Y \in B}=\pr{X \in A}\pr{Y \in B}
     \end{align}
     In other words conditional probability follows
-    \begin{align}
-        \pr{X\in A|Y \in B}=\pr{X \in A}
-    \end{align}
+    \begin{multline}
+        \pr{X\in A|Y \in B}=\frac{\pr{X \in A, Y \in B}}{\pr{Y \in B}}\\=\pr{X \in A}
+    \end{multline}
     for all sets $A$ and $B$. \\
     In the case of $\pr{X>a|Y>a}=\pr{X>a}$ the sets $A=B$. The spectrum of conditions for independence is underrepresented. Hence, the condition does not imply independence of $X$ and $Y$.\\
     \textbf{Counterexample:} Consider two random variables $X$,$Y \in \{0,1,2\}$ with the probabilities of the ordered pairs \brak{X,Y} given in the Table\ref{table1}
     \begin{center}
-    \begin{table}[h]
+    \begin{table}[H]
     \centering
     \resizebox{\columnwidth}{!}{
     \begin{tabular}{|c|c||c|c||c|c|}
@@ -166,18 +166,26 @@ Which of the following conditions imply independence of random variables $X$ and
     \label{table1}
     \end{table}
     \end{center}
-    
-    Consider
-    \begin{multline}
-        \pr{X>1|Y>1}=\frac{\pr{X>1,Y>1}}{\pr{Y>1}}\\
-        =\frac{\pr{X=2,Y=2}}{\pr{Y=2}}=\frac{0.05}{0.2}=0.25
-    \end{multline}
+    Case 1: $a<0$
     \begin{align}
-        \pr{X>1}=\pr{X=2}=0.25
+        \pr{X>a|Y>a}=1=\pr{X>a}
     \end{align}
-    Similarly, we can find that 
-    $\pr{X>a|Y>a}=\pr{X>a}$ for all $a \leq 2 $.
-    ($\because$ $\pr{Y>a}=0$ for all $a>2$)\\
+    Case 2: $0\leq a <1$
+    \begin{align}
+        \pr{X>a|Y>a}=\frac{\pr{X,Y>a}}{\pr{Y>a}}=\frac{0.3}{0.5}=0.6\\
+        \pr{X>a}=\pr{X=1}+\pr{X=2}=0.6
+    \end{align}
+    Case 3: $1\leq a <2$
+    \begin{align}
+        \pr{X>a|Y>a}=\frac{\pr{X,Y>a}}{\pr{Y>a}}=\frac{0.05}{0.2}=0.25\\
+        \pr{X>a}=\pr{X=2}=0.25
+    \end{align}
+    Case 4: $a\geq 2$
+    \begin{align}
+        \pr{X>a|Y>a}=\frac{\pr{X,Y>a}}{\pr{Y>a}}
+    \end{align}
+    is not defined as $\pr{Y>a}=0$\\
+    In all the cases, $\pr{X>a|Y>a}=\pr{X>a}$ is true.\\
     Consider,
     \begin{align}
         \pr{X=1,Y=2}=0.05
@@ -185,26 +193,25 @@ Which of the following conditions imply independence of random variables $X$ and
     \begin{multline}
         \pr{X=1}\pr{Y=2}=0.35\times0.2=0.7\\\neq\pr{X=1,Y=2}
     \end{multline} 
-    Clearly, $X$ and $Y$ are not independent. 
-    
+    Clearly, $X$ and $Y$ are not independent. \\
     \textbf{Option 1 is incorrect}
     
     \item From Bayes theorem,
-\begin{align}
-    \pr{X>a|Y<b}=\frac{\pr{\brak{X>a},\brak{Y<b}}}{\pr{Y<b}}
-\end{align}
-Given that $\pr{X>a|Y<b}=\pr{X>a}$,
-\begin{align}
-    \frac{\pr{\brak{X>a},\brak{Y<b}}}{\pr{Y<b}}=\pr{X>a}\\
-    \pr{\brak{X>a},\brak{Y<b}}=\pr{X>a}\pr{Y<b}
-\end{align}
-for all $a,b\in R$.\\
-From \eqref{eq1}, $X$ and $Y$ are independent. \\
-\textbf{Option 2 is correct}
+    \begin{align}
+      \pr{X>a|Y<b}=\frac{\pr{\brak{X>a},\brak{Y<b}}}{\pr{Y<b}}
+    \end{align}
+    Given that $\pr{X>a|Y<b}=\pr{X>a}$,
+    \begin{align}
+        \frac{\pr{\brak{X>a},\brak{Y<b}}}{\pr{Y<b}}=\pr{X>a}\\
+        \pr{\brak{X>a},\brak{Y<b}}=\pr{X>a}\pr{Y<b}
+    \end{align}
+    for all $a,b\in R$.\\
+    From \eqref{eq1}, $X$ and $Y$ are independent. \\
+    \textbf{Option 2 is correct}
     \item Two random variables $X$ and $Y$ are uncorrelated if their covariance is zero.
-\begin{align}
-    cov\sbrak{X,Y}=E\sbrak{XY}-E\sbrak{X}E\sbrak{Y}=0
-\end{align}
+    \begin{align}
+        cov\sbrak{X,Y}=E\sbrak{XY}-E\sbrak{X}E\sbrak{Y}=0
+    \end{align}
     Uncorrelatedness does not imply independence.\\
     \textbf{Counterexample:} Let $X\sim U \sbrak{-1,1}$ be a uniformly distributed random variable.
     \begin{align}
