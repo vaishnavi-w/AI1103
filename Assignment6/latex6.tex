@@ -168,15 +168,16 @@ Which of the following conditions imply independence of random variables $X$ and
     \end{center}
     
     Consider
-    \begin{align}
-        \pr{X>1,Y>1}=\pr{X=2,Y=2}=0.05
-    \end{align}
     \begin{multline}
-        \pr{X>1}\pr{Y>1}=\pr{X=2}\pr{Y=2}\\
-        =0.25\times0.2=0.05
+        \pr{X>1|Y>1}=\frac{\pr{X>1,Y>1}}{\pr{Y>1}}\\
+        =\frac{\pr{X=2,Y=2}}{\pr{Y=2}}=\frac{0.05}{0.2}=0.25
     \end{multline}
+    \begin{align}
+        \pr{X>1}=\pr{X=2}=0.25
+    \end{align}
     Similarly, we can find that 
-    $\pr{X>a,Y>a}=\pr{X>a}\pr{Y>a}$ for all $a\in R$\\
+    $\pr{X>a|Y>a}=\pr{X>a}$ for all $a \leq 2 $.
+    ($\because$ $\pr{Y>a}=0$ for all $a>2$)\\
     Consider,
     \begin{align}
         \pr{X=1,Y=2}=0.05
