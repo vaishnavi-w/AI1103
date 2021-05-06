@@ -172,7 +172,7 @@ Which of the following conditions imply independence of random variables $X$ and
     \end{align}
     Given that $\pr{X>a|Y>a}=\pr{X>a}$,
     \begin{align}
-        \implies \pr{X>a,Y>a}&=\pr{X>a}\pr{Y>a}
+        \label{eq2}\implies \pr{X>a,Y>a}&=\pr{X>a}\pr{Y>a}
     \end{align}
     for all $a\in R$.
     \begin{multline}
@@ -181,7 +181,7 @@ Which of the following conditions imply independence of random variables $X$ and
     \begin{multline}
         1-F_X\brak{a}-F_Y\brak{a}=\pr{X>a,Y>a}\\-F_{X,Y}\brak{a,a}
     \end{multline}
-    Substituting in,
+    Substituting in \eqref{eq2},
     \begin{multline}
         1-F_X\brak{a}-F_Y\brak{a}+F_{X,Y}\brak{a,a}=\\ \brak{1-F_X\brak{a}}\brak{1-F_Y\brak{a}}
     \end{multline}
@@ -244,14 +244,14 @@ Which of the following conditions imply independence of random variables $X$ and
     \end{align}
     Given that $\pr{X>a|Y<b}=\pr{X>a}$,
     \begin{align}
-        \implies \pr{X>a,Y<b}=\pr{X>a}\pr{Y<b}
+        \label{eq3}\implies \pr{X>a,Y<b}=\pr{X>a}\pr{Y<b}
     \end{align}
     for all $a,b\in R$. Consider
     \begin{align}
         F_Y\brak{b}=\pr{X>a,Y<b}+\pr{X<a,Y<b}\\
         \implies F_Y\brak{b}-F_{X,Y}\brak{a,b}=\pr{X>a,Y<b}
     \end{align}
-    Substituting in,
+    Substituting in \eqref{eq3},
     \begin{align}
         F_Y\brak{b}-F_{X,Y}\brak{a,b}=\brak{1-F_X\brak{a}}F_Y\brak{b}\\
         \implies F_{X,Y}\brak{a,b}=F_X\brak{a}F_Y\brak{b}
