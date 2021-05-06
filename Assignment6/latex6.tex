@@ -141,12 +141,54 @@ Which of the following conditions imply independence of random variables $X$ and
     \begin{align}
         \label{eq1} \pr{X\in A,Y \in B}=\pr{X \in A}\pr{Y \in B}
     \end{align}
-    In other words conditional probability follows
+    Consider the CDFs,
+    \begin{align}
+        F_X\brak{a}=\pr{X<a}\\
+        F_Y\brak{b}=\pr{Y<b}\\
+        F_{X,Y}\brak{a,b}=\pr{X<a,Y<b}
+    \end{align}
+    Let $F_{X,Y}\brak{a,b}=F_X\brak{a}F_Y\brak{b}$ be true\\
+    Partial derivative w.r.t a,
+    \begin{align}
+        \frac{\partial F_{X,Y}\brak{a,b}}{\partial a}=\frac{\partial F_X\brak{a} }{\partial a}F_Y\brak{b}
+    \end{align}
+    Partial derivative w.r.t b,
+    \begin{align}
+        \frac{\partial^2 F_{X,Y}\brak{a,b}}{\partial b \partial a}=\frac{\partial F_X\brak{a} }{\partial a}\frac{\partial F_Y\brak{b} }{\partial b} \\
+        \implies p_{X,Y}\brak{a,b}=p_X\brak{a}p_Y\brak{b}
+    \end{align}
+    when X,Y are discrete. And,
+    \begin{align}
+        \implies f_{X,Y}\brak{a,b}=f_X\brak{a}f_Y\brak{b}
+    \end{align}
+    when X,Y are continuous, for all $a,b\in R$. \\
+    $\therefore$ Two random variables are independent if the joint CDF can be expressed as the product of individual CDFs i.e for all $a,b\in R$
+    \begin{align}
+       \label{eq1} F_{X,Y}\brak{a,b}=F_X\brak{a}F_Y\brak{b}
+    \end{align}
+    Consider,
+    \begin{align}
+      \pr{X>a|Y>a}&=\frac{\pr{X>a,Y>a}}{\pr{Y>a}}
+    \end{align}
+    Given that $\pr{X>a|Y>a}=\pr{X>a}$,
+    \begin{align}
+        \implies \pr{X>a,Y>a}&=\pr{X>a}\pr{Y>a}
+    \end{align}
+    for all $a\in R$.
     \begin{multline}
-        \pr{X\in A|Y \in B}=\frac{\pr{X \in A, Y \in B}}{\pr{Y \in B}}\\=\pr{X \in A}
+        1-F_X\brak{a}-F_Y\brak{a}=\pr{X>a}-\pr{Y<a}\\=\pr{X>a,Y>a}+\pr{X>a,Y<a}\\-\pr{X>a,Y<a}-\pr{X<a,Y<a}
     \end{multline}
-    for all sets $A$ and $B$. \\
-    In the case of $\pr{X>a|Y>a}=\pr{X>a}$ the sets $A=B$. The spectrum of conditions for independence is underrepresented. Hence, the condition does not imply independence of $X$ and $Y$.\\
+    \begin{multline}
+        1-F_X\brak{a}-F_Y\brak{a}=\pr{X>a,Y>a}\\-F_{X,Y}\brak{a,a}
+    \end{multline}
+    Substituting in,
+    \begin{multline}
+        1-F_X\brak{a}-F_Y\brak{a}+F_{X,Y}\brak{a,a}=\\ \brak{1-F_X\brak{a}}\brak{1-F_Y\brak{a}}
+    \end{multline}
+    \begin{align}
+        \implies F_{X,Y}\brak{a,a}=F_X\brak{a}F_Y\brak{a}
+    \end{align}
+    On comparing with \eqref{eq1} in this case, it is true only under the condition that $b=a$. It may not be true for other values of $b$. The spectrum of conditions for independence is underrepresented.\\ Hence, the condition does not imply independence of $X$ and $Y$.\\
     \textbf{Counterexample:} Consider two random variables $X$,$Y \in \{0,1,2\}$ with the probabilities of the ordered pairs \brak{X,Y} given in the Table\ref{table1}
     \begin{center}
     \begin{table}[H]
@@ -198,15 +240,23 @@ Which of the following conditions imply independence of random variables $X$ and
     
     \item From Bayes theorem,
     \begin{align}
-      \pr{X>a|Y<b}=\frac{\pr{\brak{X>a},\brak{Y<b}}}{\pr{Y<b}}
+      \pr{X>a|Y<b}=\frac{\pr{X>a,Y<b}}{\pr{Y<b}}
     \end{align}
     Given that $\pr{X>a|Y<b}=\pr{X>a}$,
     \begin{align}
-        \frac{\pr{\brak{X>a},\brak{Y<b}}}{\pr{Y<b}}=\pr{X>a}\\
-        \pr{\brak{X>a},\brak{Y<b}}=\pr{X>a}\pr{Y<b}
+        \implies \pr{X>a,Y<b}=\pr{X>a}\pr{Y<b}
     \end{align}
-    for all $a,b\in R$.\\
-    From \eqref{eq1}, $X$ and $Y$ are independent. \\
+    for all $a,b\in R$. Consider
+    \begin{align}
+        F_Y\brak{b}=\pr{X>a,Y<b}+\pr{X<a,Y<b}\\
+        \implies F_Y\brak{b}-F_{X,Y}\brak{a,b}=\pr{X>a,Y<b}
+    \end{align}
+    Substituting in,
+    \begin{align}
+        F_Y\brak{b}-F_{X,Y}\brak{a,b}=\brak{1-F_X\brak{a}}F_Y\brak{b}\\
+        \implies F_{X,Y}\brak{a,b}=F_X\brak{a}F_Y\brak{b}
+    \end{align}
+    for all $a,b\in R$. Thus, $X$ and $Y$ are independent. \\
     \textbf{Option 2 is correct}
     \item Two random variables $X$ and $Y$ are uncorrelated if their covariance is zero.
     \begin{align}
@@ -240,7 +290,7 @@ Which of the following conditions imply independence of random variables $X$ and
         E\sbrak{\brak{X-a}\brak{Y-b}}\\-E\sbrak{X-a}E\sbrak{Y-b}
     \end{multline}
     \begin{align}
-        \implies cov\sbrak{\brak{X-a}\brak{Y-b}}=0
+        \implies cov\sbrak{\brak{X-a}\brak{Y-b}}=0=cov\sbrak{X,Y}
     \end{align}
     From option 3, it follows that $X$ and $Y$ are not necessarily independent.\\
     \textbf{Option 4 is incorrect.}
