@@ -147,7 +147,7 @@ Which of the following conditions imply independence of random variables $X$ and
         F_Y\brak{b}=\pr{Y<b}\\
         F_{X,Y}\brak{a,b}=\pr{X<a,Y<b}
     \end{align}
-    Let $F_{X,Y}\brak{a,b}=F_X\brak{a}F_Y\brak{b}$ be true\\
+    Let $F_{X,Y}\brak{a,b}=F_X\brak{a}F_Y\brak{b}$ be true. 
     Partial derivative w.r.t a,
     \begin{align}
         \frac{\partial F_{X,Y}\brak{a,b}}{\partial a}=\frac{\partial F_X\brak{a} }{\partial a}F_Y\brak{b}
@@ -161,7 +161,8 @@ Which of the following conditions imply independence of random variables $X$ and
     \begin{align}
         \implies f_{X,Y}\brak{a,b}=f_X\brak{a}f_Y\brak{b}
     \end{align}
-    when X,Y are continuous, for all $a,b\in R$. \\
+    when X,Y are continuous, for all $a,b\in R$. 
+    
     $\therefore$ Two random variables are independent if the joint CDF can be expressed as the product of individual CDFs i.e for all $a,b\in R$
     \begin{align}
        \label{eq1} F_{X,Y}\brak{a,b}=F_X\brak{a}F_Y\brak{b}
@@ -188,7 +189,8 @@ Which of the following conditions imply independence of random variables $X$ and
     \begin{align}
         \implies F_{X,Y}\brak{a,a}=F_X\brak{a}F_Y\brak{a}
     \end{align}
-    On comparing with \eqref{eq1} in this case, it is true only under the condition that $b=a$. It may not be true for other values of $b$. The spectrum of conditions for independence is underrepresented.\\ Hence, the condition does not imply independence of $X$ and $Y$.\\
+    On comparing with \eqref{eq1} in this case, it is true only under the condition that $b=a$. It may not be true for other values of $b$. The spectrum of conditions for independence is underrepresented. Hence, the condition does not imply independence of $X$ and $Y$.
+    
     \textbf{Counterexample:} Consider two random variables $X$,$Y \in \{0,1,2\}$ with the probabilities of the ordered pairs \brak{X,Y} given in the Table\ref{table1}
     \begin{center}
     \begin{table}[H]
@@ -226,8 +228,9 @@ Which of the following conditions imply independence of random variables $X$ and
     \begin{align}
         \pr{X>a|Y>a}=\frac{\pr{X,Y>a}}{\pr{Y>a}}
     \end{align}
-    is not defined as $\pr{Y>a}=0$\\
-    In all the cases, $\pr{X>a|Y>a}=\pr{X>a}$ is true.\\
+    is not defined as $\pr{Y>a}=0$.
+    In all the cases, $\pr{X>a|Y>a}=\pr{X>a}$ is true.
+    
     Consider,
     \begin{align}
         \pr{X=1,Y=2}=0.05
@@ -235,7 +238,8 @@ Which of the following conditions imply independence of random variables $X$ and
     \begin{multline}
         \pr{X=1}\pr{Y=2}=0.35\times0.2=0.7\\\neq\pr{X=1,Y=2}
     \end{multline} 
-    Clearly, $X$ and $Y$ are not independent. \\
+    Clearly, $X$ and $Y$ are not independent. 
+    
     \textbf{Option 1 is incorrect}
     
     \item From Bayes theorem,
@@ -256,13 +260,16 @@ Which of the following conditions imply independence of random variables $X$ and
         F_Y\brak{b}-F_{X,Y}\brak{a,b}=\brak{1-F_X\brak{a}}F_Y\brak{b}\\
         \implies F_{X,Y}\brak{a,b}=F_X\brak{a}F_Y\brak{b}
     \end{align}
-    for all $a,b\in R$. Thus, $X$ and $Y$ are independent. \\
+    for all $a,b\in R$. Thus, $X$ and $Y$ are independent. 
+    
     \textbf{Option 2 is correct}
+    
     \item Two random variables $X$ and $Y$ are uncorrelated if their covariance is zero.
     \begin{align}
         cov\sbrak{X,Y}=E\sbrak{XY}-E\sbrak{X}E\sbrak{Y}=0
     \end{align}
-    Uncorrelatedness does not imply independence.\\
+    Uncorrelatedness does not imply independence.
+    
     \textbf{Counterexample:} Let $X\sim U \sbrak{-1,1}$ be a uniformly distributed random variable.
     \begin{align}
         f_X\brak{x}=
@@ -272,15 +279,17 @@ Which of the following conditions imply independence of random variables $X$ and
         \end{cases}\\
         E\sbrak{X}=\int_{-1}^{1}x f\brak{x} dx=0
     \end{align}
-    Let $Y=X^2$ be another random variable.\\
+    Let $Y=X^2$ be another random variable.
     $X$ and $Y$ are dependent.
     \begin{align}
         cov\sbrak{X,Y}&=E\sbrak{XY}-E\sbrak{X}E\sbrak{Y}\\
         &=E\sbrak{X^3}-0\times E\sbrak{Y}\\
         &=\int_{-1}^{1}x^3 f\brak{x} dx=0
     \end{align}
-    $X$ and $Y$ are uncorrelated but not independent.\\
+    $X$ and $Y$ are uncorrelated but not independent.
+    
     \textbf{Option 3 is incorrect}
+    
     \item Given that,
     \begin{align}
         E\sbrak{\brak{X-a}\brak{Y-b}}=E\sbrak{X-a}E\sbrak{Y-b}
@@ -292,7 +301,9 @@ Which of the following conditions imply independence of random variables $X$ and
     \begin{align}
         \implies cov\sbrak{\brak{X-a}\brak{Y-b}}=0=cov\sbrak{X,Y}
     \end{align}
-    From option 3, it follows that $X$ and $Y$ are not necessarily independent.\\
+    From option 3, it follows that $X$ and $Y$ are not necessarily independent.
+    
     \textbf{Option 4 is incorrect.}
+
 \end{enumerate}
 \end{document}
