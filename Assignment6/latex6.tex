@@ -29,7 +29,7 @@
 \usepackage[breaklinks=true]{hyperref}
 \usepackage{graphicx}
 \usepackage{tkz-euclide}
-
+\usepackage{diagbox}
 \usetikzlibrary{calc,math}
 \usepackage{listings}
     \usepackage{color}                                            %%
@@ -194,20 +194,21 @@ Which of the following conditions imply independence of random variables $X$ and
     \textbf{Counterexample:} Consider two random variables $X$,$Y \in \{0,1,2\}$ with the probabilities of the ordered pairs \brak{X,Y} given in the Table\ref{table1}
     \begin{center}
     \begin{table}[H]
+    \begin{tiny}
     \centering
     \resizebox{\columnwidth}{!}{
-    \begin{tabular}{|c|c||c|c||c|c|}
+    \begin{tabular}{|l|c|c|c|}
     \hline
-    \brak{X,Y}&Pr&\brak{X,Y}&Pr&\brak{X,Y}&Pr\\ 
+    \backslashbox{$X$}{$Y$}&0&1&2\\ 
     \hline
-    (0,0)&0.2& (1,0)&0.2& (2,0)&0.1 \\ 
-    (0,1)&0.1& (1,1)&0.1& (2,1)&0.1 \\
-    (0,2)&0.1& (1,2)&0.05& (2,2)&0.05 \\
+     0&0.2&0.1 &0.1\\
+     1&0.2&0.1&0.05\\
+     2&0.1&0.1&0.05\\
     \hline
-    \end{tabular}
-    }
+    \end{tabular}}
     \caption{\pr{X,Y}}
     \label{table1}
+    \end{tiny}
     \end{table}
     \end{center}
     Case 1: $a<0$
