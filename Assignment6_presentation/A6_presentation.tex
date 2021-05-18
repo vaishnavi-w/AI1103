@@ -1,0 +1,208 @@
+\documentclass{beamer}
+\usepackage{listings}
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\usepackage{blkarray}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{float}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\usepackage[export]{adjustbox}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{diagbox}
+\usetikzlibrary{automata, positioning}
+\usetheme{Boadilla}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\DeclareMathOperator*{\max}{max}
+\title{CSIR UGC NET EXAM (June 2012), Q.104}
+\author{Vaishnavi W}
+\date{AI20BTECH11025}
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\begin{block}{Independence of Random Variables}
+    Two random variables $X$ and $Y$ are independent when the joint probability distribution of random variables is product of their individual probability distributions i.e for all sets A,B
+    \begin{align}
+        \label{eq1} \pr{X\in A,Y \in B}=\pr{X \in A}\pr{Y \in B}
+    \end{align}
+\end{block}
+    
+\end{frame}
+\begin{frame}{Independence of Random Variables}
+    Consider the CDFs,
+    \begin{align}
+        F_X\brak{a}=\pr{X<a}\\
+        F_Y\brak{b}=\pr{Y<b}\\
+        F_{X,Y}\brak{a,b}=\pr{X<a,Y<b}
+    \end{align}
+    Let $F_{X,Y}\brak{a,b}=F_X\brak{a}F_Y\brak{b}$ be true. 
+    
+    Partial derivative w.r.t a and then w.r.t b,
+    \begin{align}
+        \frac{\partial^2 F_{X,Y}\brak{a,b}}{\partial b \partial a}=\frac{\partial F_X\brak{a} }{\partial a}\frac{\partial F_Y\brak{b} }{\partial b} \\
+        \implies p_{X,Y}\brak{a,b}=p_X\brak{a}p_Y\brak{b}
+    \end{align}
+    when X,Y are discrete. And,
+    \begin{align}
+        \implies f_{X,Y}\brak{a,b}=f_X\brak{a}f_Y\brak{b}
+    \end{align}
+    when X,Y are continuous, for all $a,b\in R$. 
+\end{frame}
+\begin{frame}
+\begin{block}{Independence of Random Variables}
+    Two random variables are independent if the joint CDF can be expressed as the product of individual CDFs i.e for all $a,b\in R$
+    \begin{align}
+       \label{eq1} F_{X,Y}\brak{a,b}=F_X\brak{a}F_Y\brak{b}
+    \end{align}
+\end{block}
+\end{frame}
+\begin{frame}{Question}
+\begin{block}{CSIR UGC NET EXAM (June 2012), Q.104}
+Which of the following conditions imply independence of random variables $X$ and $Y$?
+\begin{enumerate}
+    \item $\pr{X>a|Y>a}=\pr{X>a} $ for all $a\in R$
+    \item $\pr{X>a|Y<b}=\pr{X>a} $ for all $a,b\in R$
+    \item $X$ and $Y$ are uncorrelated
+    \item $E\sbrak{\brak{X-a}\brak{Y-b}}=E\sbrak{X-a}E\sbrak{Y-b}$ for all $a,b\in R$
+\end{enumerate} 
+\end{block}
+\end{frame}
+\begin{frame}{Option 1}
+    Consider,
+    \begin{align}
+      \pr{X>a|Y>a}&=\frac{\pr{X>a,Y>a}}{\pr{Y>a}}
+    \end{align}
+    Given that $\pr{X>a|Y>a}=\pr{X>a}$,
+    \begin{align}
+        \label{eq2}\implies \pr{X>a,Y>a}&=\pr{X>a}\pr{Y>a}
+    \end{align}
+    for all $a\in R$
+    
+\end{frame}
+\begin{frame}{Solution contd.}
+    \begin{multline}
+        1-F_X\brak{a}-F_Y\brak{a}=\pr{X>a}-\pr{Y<a}\\=\pr{X>a,Y>a}+\pr{X>a,Y<a}-\pr{X>a,Y<a}\\ -\pr{X<a,Y<a}
+    \end{multline}
+    \begin{align}
+        1-F_X\brak{a}-F_Y\brak{a}=\pr{X>a,Y>a}-F_{X,Y}\brak{a,a}
+    \end{align}
+    Substituting in \eqref{eq2},
+    \begin{align}
+        1-F_X\brak{a}-F_Y\brak{a}+F_{X,Y}\brak{a,a}=\brak{1-F_X\brak{a}}\brak{1-F_Y\brak{a}}\\
+        \implies F_{X,Y}\brak{a,a}=F_X\brak{a}F_Y\brak{a}
+    \end{align}  
+    for all $a\in R$
+\end{frame}
+\begin{frame}{Solution contd.}
+ On comparing with \eqref{eq1} in this case, it is true only under the condition that $b=a$. It may not be true for other values of $b$. The spectrum of conditions for independence is underrepresented. Hence, the condition does not imply independence of $X$ and $Y$.
+  
+  \textbf{Counterexample:} Consider two random variables $X$,$Y \in \{0,1,2\}$ with the probabilities of the ordered pairs \brak{X,Y} given in the Table\ref{table1}
+  \begin{center}
+    \begin{table}[H]
+    
+    \centering
+    
+    \begin{tabular}{|l|c|c|c|}
+    \hline
+    \backslashbox{$X$}{$Y$}&0&1&2\\ 
+    \hline
+     0&0.2&0.1 &0.1\\
+     1&0.2&0.1&0.05\\
+     2&0.1&0.1&0.05\\
+    \hline
+    \end{tabular}
+    \caption{\pr{X,Y}}
+    \label{table1}
+    
+    \end{table}
+    \end{center}
+\end{frame}
+\begin{frame}{Solution contd.}
+    In all the cases, $\pr{X>a|Y>a}=\pr{X>a}$ is true.
+    
+    Consider,
+    \begin{align}
+        \pr{X=1,Y=2}=0.05\\
+        \pr{X=1}\pr{Y=2}=0.35\times0.2=0.7\neq\pr{X=1,Y=2}
+    \end{align} 
+    Clearly, $X$ and $Y$ are not independent. 
+\end{frame}
+\begin{frame}{Option 2 }
+    \begin{align}
+      \pr{X>a|Y<b}=\frac{\pr{X>a,Y<b}}{\pr{Y<b}}
+    \end{align}
+    Given that $\pr{X>a|Y<b}=\pr{X>a}$,
+    \begin{align}
+        \label{eq3}\implies \pr{X>a,Y<b}=\pr{X>a}\pr{Y<b}
+    \end{align}
+    for all $a,b\in R$. Consider
+    \begin{align}
+        F_Y\brak{b}=\pr{X>a,Y<b}+\pr{X<a,Y<b}\\
+        \implies F_Y\brak{b}-F_{X,Y}\brak{a,b}=\pr{X>a,Y<b}
+    \end{align}
+    Substituting in \eqref{eq3},
+    \begin{align}
+        F_Y\brak{b}-F_{X,Y}\brak{a,b}=\brak{1-F_X\brak{a}}F_Y\brak{b}\\
+        \implies F_{X,Y}\brak{a,b}=F_X\brak{a}F_Y\brak{b}
+    \end{align}
+    for all $a,b\in R$. Thus, $X$ and $Y$ are independent. 
+\end{frame}
+\begin{frame}{Option 3}
+\begin{block}{Uncorrelatedness}
+    Two random variables $X$ and $Y$ are uncorrelated if their covariance is zero.
+    \begin{align}
+        cov\sbrak{X,Y}=E\sbrak{XY}-E\sbrak{X}E\sbrak{Y}=0
+    \end{align}
+    Uncorrelatedness does not imply independence.
+\end{block}
+\end{frame}
+\begin{frame}{Solution contd.}
+    \textbf{Counterexample:} Let $X\sim U \sbrak{-1,1}$ be a uniformly distributed random variable.
+    \begin{align}
+        f_X\brak{x}=
+        \begin{cases}
+        \frac{1}{2} & -1\leq x \leq 1\\
+        0 & otherwise
+        \end{cases}\\
+        E\sbrak{X}=\int_{-1}^{1}x f\brak{x} dx=0
+    \end{align}
+    Let $Y=X^2$ be another random variable.
+    $X$ and $Y$ are dependent.
+    \begin{align}
+        cov\sbrak{X,Y}&=E\sbrak{XY}-E\sbrak{X}E\sbrak{Y}\\
+        &=E\sbrak{X^3}-0\times E\sbrak{Y}\\
+        &=\int_{-1}^{1}x^3 f\brak{x} dx=0
+    \end{align}
+    $X$ and $Y$ are uncorrelated but not independent.
+\end{frame}
+\begin{frame}{Option 4}
+    Given that,
+    \begin{align}
+        E\sbrak{\brak{X-a}\brak{Y-b}}=E\sbrak{X-a}E\sbrak{Y-b}\\
+        E\sbrak{XY-aY-bX+ab}=\brak{E\sbrak{X}-a}\brak{E\sbrak{Y}-b}\\
+        E\sbrak{XY}-aE\sbrak{Y}-bE\sbrak{X}+ab = \brak{E\sbrak{X}-a}\brak{E\sbrak{Y}-b}\\
+        \implies E\sbrak{XY} = E\sbrak{X}E\sbrak{Y}
+    \end{align}
+    \begin{align}
+        cov\sbrak{X,Y}&=E\sbrak{XY}-E\sbrak{X}E\sbrak{Y}=0
+    \end{align}
+    From option 3, it follows that $X$ and $Y$ are not necessarily independent.
+\end{frame}
+\end{document}
